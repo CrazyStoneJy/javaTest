@@ -1,0 +1,22 @@
+package com.crazystone.test.enumtest;
+
+public enum MyType {
+
+	FIRST {
+		@Override
+		int getMyNumber(int num) {
+			return this.number=num;
+		}
+	},
+	SECOND {
+		@Override
+		int getMyNumber(int num) {
+			return this.number=num;
+		}
+	};
+	
+	int number;
+	
+	abstract int getMyNumber(int num);
+	
+}

@@ -1,0 +1,25 @@
+package com.crazystone.test.enumtest;
+
+public enum MyType {
+
+	FIRST(3),
+	SECOND(4),
+	THIRD;
+	
+	int number;
+	
+//	abstract int getMyNumber(int num);
+	
+	 MyType(int num){
+		this.number=num;
+	};
+	
+	MyType(){
+		
+	}
+	
+	public static void test(){
+		System.out.println("test");
+	}
+	
+}

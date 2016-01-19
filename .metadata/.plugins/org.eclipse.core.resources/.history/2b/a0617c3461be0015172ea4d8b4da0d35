@@ -1,0 +1,19 @@
+package com.crazystone.test.enumtest;
+
+public class MyEnumTest {
+
+	public static void main(String[] args) {
+		
+		MyType[] types=MyType.values();
+		for(MyType type: types){
+			System.out.println("enum name:"+type.name());
+		}
+		
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>");
+		int testNumber=5;
+//		if(testNumber==MyType.FIRST);
+		
+	}
+	
+	
+}
