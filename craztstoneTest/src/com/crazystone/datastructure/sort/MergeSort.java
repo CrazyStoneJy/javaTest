@@ -42,7 +42,6 @@ public class MergeSort {
                 index3++;
             }
 
-
             while (index1 < first.size()) {
                 after.set(index3, first.get(index1));
                 index1++;

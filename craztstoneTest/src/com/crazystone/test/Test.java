@@ -40,8 +40,14 @@ public class Test {
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>");
         System.out.println(getDate("20160708"));
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>");
+
+        final String str=getStr();
+        System.out.println(str);
     }
 
+    public static String getStr(){
+        return ">>>hashd";
+    }
 
     //    public static int getRandomNumber(List<Integer> list) {
     //        int temp = 0;
