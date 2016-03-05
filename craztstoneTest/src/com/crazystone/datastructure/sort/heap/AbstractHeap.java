@@ -30,4 +30,9 @@ public abstract class AbstractHeap<E> implements Heap<E> {
     public boolean isEmpty() {
         return mList.size() == 0;
     }
+
+    public void printHeap() {
+        if(mList==null)return;
+        System.out.println("add after heap:"+mList.toString());
+    }
 }

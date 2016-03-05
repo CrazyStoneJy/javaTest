@@ -7,7 +7,6 @@ import java.util.List;
  * 大根堆的实现
  * Created by crazystone on 2016/3/4.
  */
-//fixme(has problem)
 public class BigHeap<E extends Comparable> extends AbstractHeap<E> {
 
 
@@ -64,7 +63,7 @@ public class BigHeap<E extends Comparable> extends AbstractHeap<E> {
                 }
             }
             //parent值与孩子的最大值替换
-            if (mList.get(curIndex).compareTo(mList.get(maxIndex)) > 0) {
+            if (mList.get(curIndex).compareTo(mList.get(maxIndex)) < 0) {
                 E temp = mList.get(curIndex);
                 mList.set(curIndex, mList.get(maxIndex));
                 mList.set(maxIndex, temp);
