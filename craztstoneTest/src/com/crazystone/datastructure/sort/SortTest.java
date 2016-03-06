@@ -11,24 +11,15 @@ public class SortTest {
 
     public static void main(String[] agrs) {
 
-//        List<Integer> list = new ArrayList<Integer>();
-        Integer[] array = new Integer[10];
-        for (int i = 0; i < 10; i++) {
-//            list.add(getRandomNumber());
-            array[i] = getRandomNumber();
-            System.out.print(array[i] + " ");
-        }
-        List<Integer> list = HeapSort.sort(array);
-        System.out.println("");
-        System.out.println(">>>>>>>>>>");
-//        for (int i = 0; i < 10; i++) {
-        System.out.println(list.toString() + " ");
-//        }
-
-        Integer[] before = getArray();
-        printArray(before);
-        Integer[] after = InsertionSort.sort(before);
-        printArray(after);
+        SortUtils.sort(getArray(), SortType.BUBBLE);
+        System.out.println(">>>>>>>>>>>>>>");
+        SortUtils.sort(getArray(), SortType.HEAP);
+        System.out.println(">>>>>>>>>>>>>>");
+        SortUtils.sort(getArray(), SortType.INSERTION);
+        System.out.println(">>>>>>>>>>>>>>");
+        SortUtils.sort(getArray(), SortType.SELECTION);
+        System.out.println(">>>>>>>>>>>>>>");
+        SortUtils.sort(getArray(), SortType.QUICK);
 
     }
 
@@ -44,7 +35,7 @@ public class SortTest {
     /**
      * 生成一个整型的随机数组
      *
-     * @return
+     * @return Integer[]
      */
     public static Integer[] getArray() {
         Integer[] array = new Integer[10];
@@ -54,18 +45,5 @@ public class SortTest {
         return array;
     }
 
-
-    /**
-     * 打印数组
-     *
-     * @param array 数组
-     * @param <E>   extends Comparable
-     */
-    public static <E extends Comparable> void printArray(E[] array) {
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + "  ");
-        }
-        System.out.println();
-    }
 
 }

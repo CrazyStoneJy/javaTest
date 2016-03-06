@@ -29,7 +29,6 @@ public class Test {
             System.out.println(list.get(i));
         }
 
-        list = SelectionSort.sort(list);
         System.out.println("list:" + list.toString());
 
 

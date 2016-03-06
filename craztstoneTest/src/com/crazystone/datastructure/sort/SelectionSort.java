@@ -8,29 +8,34 @@ import java.util.List;
  */
 public class SelectionSort {
 
-    //fixme(has problem)
-    public static List<Integer> sort(List<Integer> list) {
-        //下标值
-        int min = 0;
-        int temp = 0;//中间存储变量
-        for (int i = 0; i < list.size(); i++) {
-            min = i;
-            for (int j = i + 1; j < list.size(); j++) {
+    public static <E extends Comparable<E>> E[] sort(List<E> list) {
+        E[] array = (E[]) list.toArray();
+        return sort(array);
+    }
 
-                if (list.get(min) > list.get(j)) {
-                    min = j;
+    /***
+     * 选择排序
+     *
+     * @param array
+     * @param <E>
+     * @return
+     */
+    public static <E extends Comparable<E>> E[] sort(E[] array) {
+        int min = 0;//min for index
+        for (int i = 0; i < array.length; i++) {
+            min = i;
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j].compareTo(array[min]) < 0) {//compare this value to min value
+                    min = j;//mark the min index,
                 }
             }
-
             if (min != i) {
-                temp = list.get(min);
-                list.set(i, temp);
-                list.set(min, list.get(i));
+                E temp = array[min];
+                array[min] = array[i];
+                array[i] = temp;
             }
         }
-
-
-        return list;
+        return array;
     }
 
 

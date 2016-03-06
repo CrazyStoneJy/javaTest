@@ -6,8 +6,7 @@ package com.crazystone.datastructure.sort;
  */
 public class InsertionSort {
 
-    public static <E extends Comparable> E[] sort(E[] array) {
-
+    public static <E extends Comparable<E>> E[] sort(E[] array) {
         for (int i = 1; i < array.length; i++) {
             E insertObj = array[i];
             int j = i - 1;

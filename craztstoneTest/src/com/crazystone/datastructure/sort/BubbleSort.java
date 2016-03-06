@@ -8,42 +8,50 @@ import java.util.List;
  */
 public class BubbleSort {
 
-    public static List<Integer> sort(List<Integer> list) {
-        if (list == null || list.size() == 0) throw new RuntimeException("list is null or list size is zero");
-        int temp = 0;
-        for (int i = 1; i < list.size(); i++) {
-            for (int j = 0; j < list.size() - i; i++) {
-                if (list.get(i) > list.get(i + 1)) {
-                    temp = list.get(i);
-                    list.set(i, list.get(i + 1));
-                    list.set(i + 1, temp);
+    public static <E extends Comparable<E>> E[] sort(E[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[i].compareTo(array[j]) > 0) {
+                    E temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
                 }
             }
         }
-        return list;
+        return array;
     }
 
-    /**
-     * 优化后的冒泡算法
+    public static <E extends Comparable<E>> E[] sort(List<E> list) {
+        E[] array = (E[]) list.toArray();
+        return sort(array);
+    }
+
+    /***
+     * 优化后的冒泡排序算法
      *
-     * @param list
+     * @param array 数组
+     * @param <E>   extends Comparable
      * @return
      */
-    public static List<Integer> optimSort(List<Integer> list) {
-        int temp = 0;
-        boolean isPass = true;
-        if (list == null || list.size() == 0) throw new RuntimeException("list is null or list size is zero");
-        for (int i = 1; i < list.size() && isPass; i++) {
-            isPass = false;
-            for (int j = 0; j < list.size() - i; i++) {
-                if (list.get(i) > list.get(i + 1)) {
-                    temp = list.get(i);
-                    list.set(i, list.get(i + 1));
-                    list.set(i + 1, temp);
-                    isPass = true;
+    public static <E extends Comparable<E>> E[] optimzSort(E[] array) {
+        boolean isContinue = true;
+        for (int i = 0; i < array.length - 1 && isContinue; i++) {
+            isContinue = false;
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[i].compareTo(array[j]) > 0) {
+                    E temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                    isContinue = true;
                 }
             }
         }
-        return list;
+        return array;
     }
+
+    public static <E extends Comparable<E>> E[] optimzSort(List<E> list) {
+        E[] array = (E[]) list.toArray();
+        return array;
+    }
+
 }
