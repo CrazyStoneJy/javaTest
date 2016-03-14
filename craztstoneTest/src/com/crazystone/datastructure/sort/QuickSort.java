@@ -57,7 +57,7 @@ public class QuickSort {
             }
         }
 
-        //i don't know why do shis
+        //i don't know why do this
         while (high > first && array[high].compareTo(pivot) > 0)
             high--;
 

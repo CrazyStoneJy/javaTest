@@ -42,6 +42,7 @@ public class Test {
 
         final String str=getStr();
         System.out.println(str);
+
     }
 
     public static String getStr(){

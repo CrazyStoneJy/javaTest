@@ -39,7 +39,7 @@ public class MergeSort {
      */
     public static <E extends Comparable<E>> E[] merge(E[] first, E[] second) {
         int index1 = 0, index2 = 0, index3 = 0;
-        E[] after = (E[]) new Comparable[first.length + second.length];
+        E[] after = (E[]) new Comparable[first.length + second.length];//has problem
         while (index1 < first.length || index2 < second.length) {
             if (first[index1].compareTo(second[index2]) < 0) {
                 after[index3] = first[index1];

@@ -27,7 +27,7 @@ public class BubbleSort {
     }
 
     /***
-     * 优化后的冒泡排序算法
+     * 优化后的冒泡排序算法(增加了一个boolean标志位，如果上次没有元素进行交换，则说明排序已经好，没必要再去比较)
      *
      * @param array 数组
      * @param <E>   extends Comparable
