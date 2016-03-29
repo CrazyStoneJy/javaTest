@@ -27,26 +27,77 @@ public class MyLinkedList<E> extends AbstractList<E> {
 
     @Override
     public boolean remove(int index) {
-        return false;
+        if (index >= size || index < 0)
+            throw new IllegalStateException("index cannot be negative,or index out of range");
+        if (index == 0) {
+            removeFirst();
+            return true;
+        } else if (index == size - 1) {
+            removeLast();
+            return true;
+        } else {
+            Node<E> previous = head;
+            for (int i = 1; i < index; i++) {
+                previous = previous.next;
+            }
+            Node<E> current = previous.next;
+            previous.next = current.next;
+            size--;
+            return true;
+        }
+//        return false;
     }
 
     @Override
     public E get(int index) {
-        return null;
+        if (index >= size || index < 0)
+            throw new IllegalStateException("index cannot be negative,or index out of range");
+
+        Node<E> current = head;
+        for (int i = 0; i <= index; i++) {
+            current = current.next;
+        }
+        return current.element;
     }
 
     @Override
     public E set(int index, E e) {
-        return null;
+        if (index >= size || index < 0)
+            throw new IllegalStateException("index cannot be negative,or index out of range");
+
+        Node<E> previous = head;
+        E oldValue = null;
+        Node<E> newNode = new Node<E>(e);
+        if (index == 0) {
+            head = newNode;
+            newNode.next = previous;
+            return head.element;
+        } else {
+            for (int i = 0; i < index - 1; i++) {
+                previous = previous.next;
+            }
+            oldValue = previous.next.element;
+            newNode.next = previous.next.next;
+            previous.next = newNode;
+            return oldValue;
+        }
     }
 
     @Override
     public int indexOf(E e) {
-        return 0;
+
+        Node<E> current = head;
+        for (int i = 0; i < size; i++) {
+            if (current.element.equals(e)) return i;
+            current = current.next;
+        }
+        return -1;
     }
 
+    //todo
     @Override
     public int lastIndexOf(E e) {
+//        for
         return 0;
     }
 
@@ -55,13 +106,11 @@ public class MyLinkedList<E> extends AbstractList<E> {
         head = tail = null;
     }
 
-
     private void addFirst(E e) {
         Node<E> newNode = new Node<E>(e);
         newNode.next = head;
         head = newNode;
         size++;
-        //这个不知道什么意思
         if (tail == null) tail = head;
     }
 
@@ -85,6 +134,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
 
 
     private E getLast() {
+        if (tail != null) return tail.element;
         return null;
     }
 
@@ -96,10 +146,11 @@ public class MyLinkedList<E> extends AbstractList<E> {
             size = 0;
             return temp.element;
         } else {
-
+            Node<E> current = head.next;
+            head = current;
+            size--;
+            return current.element;
         }
-
-        return null;
     }
 
 
@@ -124,7 +175,6 @@ public class MyLinkedList<E> extends AbstractList<E> {
         }
     }
 
-
     static class Node<E> {
         E element;
         Node<E> next;
@@ -132,5 +182,21 @@ public class MyLinkedList<E> extends AbstractList<E> {
         public Node(E e) {
             this.element = e;
         }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        Node<E> current = head;
+        for (int i = 0; i < size; i++) {
+            sb.append(current != null ? current.element : null);
+            if (i != size - 1) {
+                sb.append(",");
+            }
+            if (current != null) current = current.next;
+        }
+        sb.append("]");
+        return sb.toString();
     }
 }

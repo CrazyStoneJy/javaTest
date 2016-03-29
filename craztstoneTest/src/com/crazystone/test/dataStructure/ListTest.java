@@ -11,6 +11,8 @@ import java.util.LinkedList;
  */
 public class ListTest {
 
+    private int myId;
+
     public static void main(String[] args) {
         List<Integer> list = new MyArrayList<Integer>();
 //        for (int i = 0; i < 10; i++) {
@@ -22,7 +24,7 @@ public class ListTest {
         list.clear();
 //        list.remove(0);
 //        list.remove(new Integer(4));
-        System.out.println("last index of:"+list.lastIndexOf(2));
+        System.out.println("last index of:" + list.lastIndexOf(2));
         System.out.println("index:" + list.indexOf(3));
         System.out.println("index:" + list.indexOf(2));
         System.out.println("constains 4:" + list.contains(4));
@@ -34,5 +36,19 @@ public class ListTest {
 
     }
 
+
+    private static class Test {
+        int id;
+
+        Test(int id) {
+            this.id = id;
+        }
+    }
+
+
+    private static void test() {
+
+
+    }
 
 }
