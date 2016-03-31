@@ -24,4 +24,6 @@ public interface Tree<E extends Comparable<E>> {
 
     public boolean isEmpty();
 
+    public void clear();
+
 }
