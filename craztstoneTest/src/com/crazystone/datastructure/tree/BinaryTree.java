@@ -3,6 +3,7 @@ package com.crazystone.datastructure.tree;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by crazystone on 2016/3/30.
@@ -79,10 +80,10 @@ public class BinaryTree<E extends Comparable<E>> extends AbstractTree<E> {
         TreeNode<E> current = root;
 
         while (current != null) {
-            if (current.element.compareTo(e) < 0) {
+            if (e.compareTo(current.element) < 0) {
                 parent = current;
                 current = current.left;
-            } else if (current.element.compareTo(e) > 0) {
+            } else if (e.compareTo(current.element) > 0) {
                 parent = current;
                 current = current.right;
             } else {
@@ -161,6 +162,7 @@ public class BinaryTree<E extends Comparable<E>> extends AbstractTree<E> {
         postOrder(root);
     }
 
+    /* 二叉树的后序遍历（用递归的方法） */
     protected void postOrder(TreeNode<E> root) {
         if (root == null) return;
         postOrder(root.left);
@@ -180,16 +182,36 @@ public class BinaryTree<E extends Comparable<E>> extends AbstractTree<E> {
         size = 0;
     }
 
-    /*  获取tree的所有叶子节点*/
+    @Override
+    public void iterator() {
+        inorderIterator();
+    }
+
+    /* 获取tree的最大深度 */
+    public int height() {
+        return height(root);
+    }
+
+    public int height(TreeNode root) {
+        if (root == null) return 0;
+        else return 1 + Math.max(height(root.left), height(root.right));
+    }
+
+
+    /*  获取tree的所有叶子节点的个数*/
     public int getNumberOfLeaves() {
-
-        
-
+        int count = 0;
+        return count;
     }
 
 
     private TreeNode<E> createNewNode(E e) {
         return new TreeNode<E>(e);
+    }
+
+
+    public Iterator inorderIterator() {
+        return new InorderIterator();
     }
 
 
@@ -211,18 +233,18 @@ public class BinaryTree<E extends Comparable<E>> extends AbstractTree<E> {
         private int index = 0;
 
         public InorderIterator() {
-
+            inorder();
         }
 
         public void inorder() {
-            inOrder(root);
+            inorder(root);
         }
 
         public void inorder(TreeNode<E> root) {
             if (root == null) return;
-            inOrder(root.left);
+            inorder(root.left);
             list.add(root.element);
-            inOrder(root.right);
+            inorder(root.right);
         }
 
 
@@ -246,6 +268,13 @@ public class BinaryTree<E extends Comparable<E>> extends AbstractTree<E> {
             list.clear();
             inorder();
         }
+    }
+
+
+    /*  判断该二叉树是否是完全二叉树 */
+    public boolean isFullBinaryTree() {
+
+        return false;
     }
 
 }

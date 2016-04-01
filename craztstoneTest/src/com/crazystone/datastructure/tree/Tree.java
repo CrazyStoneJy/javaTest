@@ -1,5 +1,7 @@
 package com.crazystone.datastructure.tree;
 
+import java.util.Iterator;
+
 /**
  * Created by crazystone on 2016/3/30.
  */
@@ -25,5 +27,7 @@ public interface Tree<E extends Comparable<E>> {
     public boolean isEmpty();
 
     public void clear();
+
+    public void iterator();
 
 }
