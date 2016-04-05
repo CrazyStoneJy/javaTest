@@ -200,20 +200,22 @@ public class BinaryTree<E extends Comparable<E>> extends AbstractTree<E> {
 
     /*  获取tree的所有叶子节点的个数*/
     public int getNumberOfLeaves() {
-        int count = 0;
-        return count;
+        return getNumberOfLeaves(root);
     }
 
+    private int getNumberOfLeaves(TreeNode<E> root) {
+        if (root == null) return 0;
+        else if (root.left == null && root.right == null) return 1;
+        else return getNumberOfLeaves(root.left) + getNumberOfLeaves(root.right);
+    }
 
     private TreeNode<E> createNewNode(E e) {
         return new TreeNode<E>(e);
     }
 
-
     public Iterator inorderIterator() {
         return new InorderIterator();
     }
-
 
     class TreeNode<E extends Comparable<E>> {
         TreeNode<E> left;
