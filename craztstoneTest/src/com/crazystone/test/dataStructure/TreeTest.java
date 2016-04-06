@@ -19,14 +19,14 @@ public class TreeTest {
         tree.insert(3);
         tree.insert(2);
         tree.insert(8);
-        tree.delete(8);
-        tree.delete(2);
+//        tree.delete(8);
+//        tree.delete(2);
 //        tree.postOrder();
-
-//        Iterator iterator = tree.inorderIterator();
-//        while (iterator.hasNext()) {
-//            System.out.print(iterator.next() + " ");
-//        }
+//System.out.println("constains:"+tree.search(7));
+        Iterator iterator = tree.inorderIterator();
+        while (iterator.hasNext()) {
+            System.out.print(iterator.next() + " ");
+        }
 
         System.out.println("tree height:" + tree.height());
         System.out.println(">>>>>>>>>>>");

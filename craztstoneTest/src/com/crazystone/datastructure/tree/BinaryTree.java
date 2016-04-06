@@ -59,12 +59,12 @@ public class BinaryTree<E extends Comparable<E>> extends AbstractTree<E> {
     public boolean search(E e) {
 
         if (isEmpty()) return false;
-
-        while (root != null) {
-            if (root.element.compareTo(e) < 0) {
-                root = root.left;
-            } else if (root.element.compareTo(e) > 0) {
-                root = root.right;
+        TreeNode current = root;
+        while (current != null) {
+            if (current.element.compareTo(e) < 0) {
+                current = current.right;
+            } else if (current.element.compareTo(e) > 0) {
+                current = current.left;
             } else {
                 return true;
             }
